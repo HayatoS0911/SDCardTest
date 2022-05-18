@@ -98,10 +98,10 @@ int main(void)
   MX_FATFS_Init();
   MX_SPI2_Init();
   /* USER CODE BEGIN 2 */
-  fresult = f_mount(&fs, "/", 1);										// SD Card Mount
+  fresult = f_mount(&fs, "/", 1);						// SD Card Mount
   if(fresult != FR_OK)
   {
-	  Error_Handler();													// Error
+	  Error_Handler();							// Error
   }
 
   strcpy(buffer, "ABCDEFG");
@@ -109,8 +109,8 @@ int main(void)
   if(fresult == FR_OK)
   {
 	  f_lseek(&fil, f_size(&fil));
-	  fresult = f_write(&fil, buffer, strlen(buffer), &bw);				// File Write
-	  f_close(&fil);													// File Close
+	  fresult = f_write(&fil, buffer, strlen(buffer), &bw);			// File Write
+	  f_close(&fil);							// File Close
   }
 
   /* USER CODE END 2 */
@@ -122,8 +122,8 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);						// Toggle LD2
-	  HAL_Delay(1000);													// Wait 1000ms
+	  HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);				// Toggle LD2
+	  HAL_Delay(1000);							// Wait 1000ms
   }
   /* USER CODE END 3 */
 }
